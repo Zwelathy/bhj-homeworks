@@ -4,7 +4,7 @@ let missClick = 0;
 for (let i = 1; i < 10; i++) {
   let clickingSpot = document.getElementById('hole' + i);
   
-  clickingSpot.onclick = () => {
+  clickingSpot.onclick = function() {
     if (clickingSpot.className.includes('hole hole_has-mole')) {
       hitClick += 1;
       document.getElementById('dead').textContent = hitClick;
