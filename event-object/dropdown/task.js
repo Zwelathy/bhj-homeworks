@@ -5,11 +5,12 @@ const listLength = dropdownItem.length;
 
 dropdownList.onclick = function() {
   activeItem.classList.toggle('dropdown__list_active');
+}
 
-  dropdownItem.addEventListener('click', function(event) {
+for (let i = 0; i < listLength; i++) {
+  dropdownItem[i].addEventListener('click', function(event) {
     event.preventDefault();
     dropdownList.textContent = event.target.textContent;
     activeItem.classList.remove('dropdown__list_active');
   });
-
 }
