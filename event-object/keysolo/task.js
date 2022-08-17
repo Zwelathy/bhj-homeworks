@@ -21,17 +21,10 @@ class Game {
 
     window.addEventListener('keyup', (element) => {
       if (element.key.toLowerCase() === this.currentSymbol.textContent) {
-        this.currentSymbol.classList.remove('symbol_current');
-        
-        if (this.currentSymbol.nextElementSibling) {
-          this.currentSymbol.nextElementSibling.classList.add('symbol_current');
-        }
-      
-        return this.success();
+        this.success();
       } 
       else {
-
-      return this.fail();
+        this.fail();
       }
     })
   
