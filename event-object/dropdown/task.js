@@ -4,16 +4,12 @@ const activeItem = document.querySelector('ul.dropdown__list');
 const listLength = dropdownItem.length;
 
 dropdownList.onclick = function() {
-  activeItem.classList.add('dropdown__list_active');
+  activeItem.classList.toggle('dropdown__list_active');
 
-  for (i = 0; i < listLength; i++) {
-    dropdownItem[i].addEventListener('click', function(event) {
-      event.preventDefault();
-      dropdownList.textContent = event.target.textContent;
-      activeItem.classList.remove('dropdown__list_active');
-
-      return;
-      });
-  }
+  dropdownItem.addEventListener('click', function(event) {
+    event.preventDefault();
+    dropdownList.textContent = event.target.textContent;
+    activeItem.classList.remove('dropdown__list_active');
+  });
 
 }
