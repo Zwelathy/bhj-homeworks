@@ -3,11 +3,11 @@ const tabMenu = document.querySelectorAll("div.tab__navigation > div");
 const tabContent = document.querySelectorAll("div.tab__contents > div");
 const menuLength = tabMenu.length;
 
-for (i = 0; i < menuLength; i++) {
+for (let i = 0; i < menuLength; i++) {
   menuArr.push(tabMenu[i].innerText);
 }
 
-for (i = 0; i < menuLength; i++) {
+for (let i = 0; i < menuLength; i++) {
   tabMenu[i].addEventListener('click', function(event) {
     let activeTab = document.querySelector('.tab_active');
     let activeContent = document.querySelector('.tab__content_active');
@@ -20,8 +20,6 @@ for (i = 0; i < menuLength; i++) {
       let arrInx = menuArr.indexOf(event.target.innerText);
 
       tabContent[arrInx].classList.add('tab__content_active');
-
-      return;
     }
   });
 }
