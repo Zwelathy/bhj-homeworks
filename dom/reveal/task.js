@@ -13,5 +13,5 @@ window.addEventListener('scroll', function() {
       key.classList.remove('reveal_active');
     }
   }
-  
+
 });
