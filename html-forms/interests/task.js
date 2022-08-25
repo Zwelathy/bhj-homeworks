@@ -6,7 +6,7 @@ checkboxItems.forEach(key => key.addEventListener('change', function() {
 
   for (child of checkboxBlock.children) {
     if (child.nodeName === 'UL') {
-      let checkboxChilds = inputExtractor(child);
+      let checkboxChilds = inputParser(child);
       this.checked === true ? checkboxChilds.forEach(element => element.checked = true) : checkboxChilds.forEach(element => element.checked = false);
       }
     }
