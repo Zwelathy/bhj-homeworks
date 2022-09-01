@@ -1,3 +1,5 @@
+/*'use strict';
+
 const tooltipHandler = document.querySelectorAll('.has-tooltip');
 const position = ['bottom', 'bottom', 'right', 'left', 'top', 'top'];
 
@@ -32,7 +34,7 @@ function getPosition(rect) {
   return {posX: posX, posY: posY}
 }
 
-/*function getPosition(rect, position, tooltip) {
+function getPosition(rect, position, tooltip) {
   let posX;
   let posY;
 
@@ -60,3 +62,40 @@ document.addEventListener('scroll', () => {
   let tooltip = document.querySelector('.tooltip_active');
   tooltip && document.body.removeChild(tooltip);
 });*/
+
+//вариант номер два
+'use strict';
+
+const tooltips = Array.from(document.querySelectorAll(".has-tooltip"));
+
+tooltips.forEach(tooltip => {
+  const element = document.createElement('div');
+  element.textContent = tooltip.title;
+
+  tooltip.addEventListener("click", (key) => {
+    key.preventDefault();
+
+    element.classList.add("tooltip");
+    tooltip.insertAdjacentElement('beforeBegin', element);
+    element.style.position = "absolute";
+
+    element.style.left = `${tooltip.getBoundingClientRect().left}px`;
+    element.style.top = `${tooltip.getBoundingClientRect().bottom}px`;
+
+    const elements = Array.from(document.querySelectorAll(".tooltip_active"));
+    const findElement = elements.find(key => key.classList.contains("tooltip_active"));
+
+    if (findElement === undefined) {
+      element.classList.add("tooltip_active");
+    }
+    else {
+      if (findElement !== element) {
+        element.classList.add("tooltip_active");
+      }
+      
+      findElement.classList.remove("tooltip_active");
+    }
+
+  })
+
+});
