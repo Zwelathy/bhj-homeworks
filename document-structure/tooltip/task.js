@@ -5,7 +5,7 @@ document.addEventListener('click', key => {
   key.preventDefault();
   let target = key.target;
   let rect = target.getBoundingClientRect();
-  console.log(rect);
+  //console.log(rect);
   !document.querySelector('.tooltip_active') && (document.body.innerHTML += `<div class="tooltip tooltip_active"></div>`);
   let tooltip = document.querySelector('.tooltip_active');
 
