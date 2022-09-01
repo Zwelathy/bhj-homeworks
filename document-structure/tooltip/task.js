@@ -3,6 +3,7 @@ const position = ['bottom', 'bottom', 'right', 'left', 'top', 'top'];
 
 [...tooltipHandler].map((element, index) => element.setAttribute('data-position', position[index]));
 
+
 document.addEventListener('click', key => {
   key.preventDefault();
   let target = key.target;
@@ -23,28 +24,33 @@ document.addEventListener('click', key => {
   }
 });
 
-function getPosition(rect, position, tooltip) {
+//не исчезающая при скроллинге подсказка только снизу
+function getPosition(rect) {
+  let posX = rect.left;
+  let posY = rect.bottom;
+
+  return {posX: posX, posY: posY}
+}
+
+/*function getPosition(rect, position, tooltip) {
   let posX;
   let posY;
 
   if (position == 'top') {
-    posY = rect.top - tooltip.getBoundingClientRect().height;
     posX = rect.left;
-    
+    posY = rect.top - tooltip.getBoundingClientRect().height;
   }
   else if (position == 'right') {
     posX = rect.right;
     posY = rect.top;
-
   }
   else if (position == 'left') {
     posX = rect.left - tooltip.getBoundingClientRect().width;
     posY = rect.top;
-
   }
   else {
-    posY = rect.bottom;
     posX = rect.left;
+    posY = rect.bottom;
   }
 
   return {posX: posX, posY: posY}
@@ -53,4 +59,4 @@ function getPosition(rect, position, tooltip) {
 document.addEventListener('scroll', () => {
   let tooltip = document.querySelector('.tooltip_active');
   tooltip && document.body.removeChild(tooltip);
-})
+});*/
